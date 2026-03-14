@@ -86,4 +86,18 @@ Power BI dashboard provides insights into:
 
 ---
 
-## Folder Structure
+
+## Future Improvements
+
+- Deploy model API using FastAPI
+- Add deep learning models
+- Real-time hospital data integration
+- Automated retraining pipeline
+
+---
+
+## Author
+
+Sri Poojitha Garine  
+Computer Science Student  
+Data Science & AI Enthusiast
