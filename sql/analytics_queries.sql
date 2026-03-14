@@ -56,3 +56,16 @@ ORDER BY time_in_hospital;
 
 --Purpose:
 --Analyze whether longer hospital stays affect readmission rates.
+
+--Rank Age Groups by Readmission Rate
+SELECT
+    age,
+    COUNT(*) AS total_patients,
+    SUM(readmitted = '<30') AS readmitted_under_30,
+    RANK() OVER (ORDER BY SUM(readmitted = '<30') DESC) AS risk_rank
+FROM patient_data
+GROUP BY age;
+
+--Purpose:
+--Ranks age groups by highest readmission risk.
+
