@@ -24,7 +24,8 @@ Python
 Pandas  
 Scikit-Learn  
 Streamlit  
-Power BI  
+Power BI
+sql
 
 ---
 
@@ -37,6 +38,16 @@ Power BI
 • Certain medical specialties have higher readmission cases  
 
 ---
+
+## SQL Analysis
+
+SQL queries were used to explore the dataset and derive key insights such as:
+
+- Total patient count
+- Readmission distribution
+- Age group analysis
+- Hospital stay patterns
+- Medication complexity
 
 ## Machine Learning Model
 
