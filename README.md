@@ -110,8 +110,4 @@ Power BI dashboard provides insights into:
 ## Live demo app
 https://healthcare-readmission-ai.streamlit.app/
 
-## Author
 
-Sri Poojitha Garine  
-Computer Science Student  
-Data Science & AI Enthusiast
