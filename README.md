@@ -105,7 +105,7 @@ Power BI dashboard provides insights into:
 - Real-time hospital data integration
 - Automated retraining pipeline
 
----
+
 
 ## Live demo app
 https://healthcare-readmission-ai.streamlit.app/
