@@ -12,7 +12,6 @@ healthcare_dw.db
 .coverage
 .aistudio/
 
-@'
 
 # Python generated files
 __pycache__/
@@ -25,4 +24,3 @@ venv/
 *.db
 .coverage
 htmlcov/
-'@ | Add-Content .gitignore
