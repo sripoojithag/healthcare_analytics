@@ -1,0 +1,28 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Generated local files
+healthcare_dw.db
+.coverage
+.aistudio/
+
+@'
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local databases and test artifacts
+*.db
+.coverage
+htmlcov/
+'@ | Add-Content .gitignore

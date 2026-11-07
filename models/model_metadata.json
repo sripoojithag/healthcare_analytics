@@ -1,0 +1,39 @@
+{
+  "model_version": "v1.0.0",
+  "algorithm": "RandomForestClassifier(n_estimators=100, max_depth=10)",
+  "features": {
+    "numeric": [
+      "time_in_hospital",
+      "num_lab_procedures",
+      "num_procedures",
+      "num_medications",
+      "number_outpatient",
+      "number_emergency",
+      "number_inpatient",
+      "number_diagnoses"
+    ],
+    "categorical": [
+      "age",
+      "gender",
+      "race",
+      "insulin",
+      "diabetesMed"
+    ]
+  },
+  "target": "readmitted_binary",
+  "training_samples": 9600,
+  "test_samples": 2400,
+  "metrics": {
+    "accuracy": 0.6146,
+    "precision": 0.613,
+    "recall": 0.577,
+    "f1_score": 0.5945,
+    "roc_auc": 0.6599,
+    "confusion_matrix": {
+      "true_negatives": 797,
+      "false_positives": 428,
+      "false_negatives": 497,
+      "true_positives": 678
+    }
+  }
+}

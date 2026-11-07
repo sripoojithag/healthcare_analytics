@@ -1,0 +1,62 @@
+# ==============================================================================
+# docker-compose.yml — Healthcare Data Warehouse & Analytics Platform
+# Local full-stack development orchestration
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # ----------------------------------------------------------------------------
+  # FastAPI Microservices Backend
+  # ----------------------------------------------------------------------------
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: healthcare-warehouse-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DATABASE_URL=sqlite:///./data/healthcare_warehouse.db
+      - CORS_ORIGINS=["http://localhost:3000","http://localhost:80","http://127.0.0.1:3000"]
+      - SECRET_KEY=${SECRET_KEY:-local_insecure_development_secret_change_in_production}
+      - MODEL_ARTIFACT_PATH=/app/models/readmission_pipeline_v1.joblib
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - healthcare-network
+
+  # ----------------------------------------------------------------------------
+  # React + TypeScript Frontend Dashboard
+  # ----------------------------------------------------------------------------
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: healthcare-warehouse-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+    networks:
+      - healthcare-network
+
+networks:
+  healthcare-network:
+    driver: bridge
